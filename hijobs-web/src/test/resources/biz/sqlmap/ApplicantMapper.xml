@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dream.hijobs.dao.mapper.ApplicantMapper" >
+  <resultMap id="BaseResultMap" type="com.dream.hijobs.dao.domain.Applicant" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="gender" property="gender" jdbcType="INTEGER" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="nick" property="nick" jdbcType="VARCHAR" />
+    <result column="avatar" property="avatar" jdbcType="VARCHAR" />
+    <result column="sig" property="sig" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="positions" property="positions" jdbcType="VARCHAR" />
+    <result column="intention" property="intention" jdbcType="VARCHAR" />
+    <result column="exp" property="exp" jdbcType="VARCHAR" />
+    <result column="hukou" property="hukou" jdbcType="VARCHAR" />
+    <result column="residence" property="residence" jdbcType="VARCHAR" />
+    <result column="grad_sch" property="gradSch" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="nature" property="nature" jdbcType="INTEGER" />
+    <result column="exp_sal" property="expSal" jdbcType="VARCHAR" />
+    <result column="edu" property="edu" jdbcType="VARCHAR" />
+    <result column="skill_cert" property="skillCert" jdbcType="VARCHAR" />
+    <result column="profile" property="profile" jdbcType="VARCHAR" />
+    <result column="tags" property="tags" jdbcType="VARCHAR" />
+    <result column="is_del" property="isDel" jdbcType="BIT" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, gender, birthday, name, nick, avatar, sig, city, user_id, positions, intention, exp, 
+    hukou, residence, grad_sch, status, nature, exp_sal, edu, skill_cert, profile, tags, 
+    is_del, gmt_created, gmt_modified
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from applicant
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from applicant
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="createApplicant" parameterType="com.dream.hijobs.dao.domain.Applicant" useGeneratedKeys="true" keyProperty="id">
+    insert into applicant (id, gmt_created, gmt_modified)
+    values (#{id,jdbcType=BIGINT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+  insert into applicant (id, gender, birthday, 
+      name, nick, avatar, sig, 
+      city, user_id, positions, 
+      intention, exp, hukou, 
+      residence, grad_sch, status, 
+      nature, exp_sal, edu, 
+      skill_cert, profile, tags, 
+      is_del, gmt_created, gmt_modified
+      )
+    values (#{id,jdbcType=BIGINT}, #{gender,jdbcType=INTEGER}, #{birthday,jdbcType=TIMESTAMP}, 
+      #{name,jdbcType=VARCHAR}, #{nick,jdbcType=VARCHAR}, #{avatar,jdbcType=VARCHAR}, #{sig,jdbcType=VARCHAR}, 
+      #{city,jdbcType=VARCHAR}, #{userId,jdbcType=BIGINT}, #{positions,jdbcType=VARCHAR}, 
+      #{intention,jdbcType=VARCHAR}, #{exp,jdbcType=VARCHAR}, #{hukou,jdbcType=VARCHAR}, 
+      #{residence,jdbcType=VARCHAR}, #{gradSch,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{nature,jdbcType=INTEGER}, #{expSal,jdbcType=VARCHAR}, #{edu,jdbcType=VARCHAR}, 
+      #{skillCert,jdbcType=VARCHAR}, #{profile,jdbcType=VARCHAR}, #{tags,jdbcType=VARCHAR}, 
+      #{isDel,jdbcType=BIT}, #{gmtCreated,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dream.hijobs.dao.domain.Applicant" >
+    insert into applicant
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="nick != null" >
+        nick,
+      </if>
+      <if test="avatar != null" >
+        avatar,
+      </if>
+      <if test="sig != null" >
+        sig,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="positions != null" >
+        positions,
+      </if>
+      <if test="intention != null" >
+        intention,
+      </if>
+      <if test="exp != null" >
+        exp,
+      </if>
+      <if test="hukou != null" >
+        hukou,
+      </if>
+      <if test="residence != null" >
+        residence,
+      </if>
+      <if test="gradSch != null" >
+        grad_sch,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="nature != null" >
+        nature,
+      </if>
+      <if test="expSal != null" >
+        exp_sal,
+      </if>
+      <if test="edu != null" >
+        edu,
+      </if>
+      <if test="skillCert != null" >
+        skill_cert,
+      </if>
+      <if test="profile != null" >
+        profile,
+      </if>
+      <if test="tags != null" >
+        tags,
+      </if>
+      <if test="isDel != null" >
+        is_del,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nick != null" >
+        #{nick,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null" >
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="sig != null" >
+        #{sig,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="positions != null" >
+        #{positions,jdbcType=VARCHAR},
+      </if>
+      <if test="intention != null" >
+        #{intention,jdbcType=VARCHAR},
+      </if>
+      <if test="exp != null" >
+        #{exp,jdbcType=VARCHAR},
+      </if>
+      <if test="hukou != null" >
+        #{hukou,jdbcType=VARCHAR},
+      </if>
+      <if test="residence != null" >
+        #{residence,jdbcType=VARCHAR},
+      </if>
+      <if test="gradSch != null" >
+        #{gradSch,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="nature != null" >
+        #{nature,jdbcType=INTEGER},
+      </if>
+      <if test="expSal != null" >
+        #{expSal,jdbcType=VARCHAR},
+      </if>
+      <if test="edu != null" >
+        #{edu,jdbcType=VARCHAR},
+      </if>
+      <if test="skillCert != null" >
+        #{skillCert,jdbcType=VARCHAR},
+      </if>
+      <if test="profile != null" >
+        #{profile,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null" >
+        #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=BIT},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dream.hijobs.dao.domain.Applicant" >
+    update applicant
+    <set >
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nick != null" >
+        nick = #{nick,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null" >
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="sig != null" >
+        sig = #{sig,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="positions != null" >
+        positions = #{positions,jdbcType=VARCHAR},
+      </if>
+      <if test="intention != null" >
+        intention = #{intention,jdbcType=VARCHAR},
+      </if>
+      <if test="exp != null" >
+        exp = #{exp,jdbcType=VARCHAR},
+      </if>
+      <if test="hukou != null" >
+        hukou = #{hukou,jdbcType=VARCHAR},
+      </if>
+      <if test="residence != null" >
+        residence = #{residence,jdbcType=VARCHAR},
+      </if>
+      <if test="gradSch != null" >
+        grad_sch = #{gradSch,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="nature != null" >
+        nature = #{nature,jdbcType=INTEGER},
+      </if>
+      <if test="expSal != null" >
+        exp_sal = #{expSal,jdbcType=VARCHAR},
+      </if>
+      <if test="edu != null" >
+        edu = #{edu,jdbcType=VARCHAR},
+      </if>
+      <if test="skillCert != null" >
+        skill_cert = #{skillCert,jdbcType=VARCHAR},
+      </if>
+      <if test="profile != null" >
+        profile = #{profile,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null" >
+        tags = #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        is_del = #{isDel,jdbcType=BIT},
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dream.hijobs.dao.domain.Applicant" >
+    update applicant
+    set gender = #{gender,jdbcType=INTEGER},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      name = #{name,jdbcType=VARCHAR},
+      nick = #{nick,jdbcType=VARCHAR},
+      avatar = #{avatar,jdbcType=VARCHAR},
+      sig = #{sig,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=BIGINT},
+      positions = #{positions,jdbcType=VARCHAR},
+      intention = #{intention,jdbcType=VARCHAR},
+      exp = #{exp,jdbcType=VARCHAR},
+      hukou = #{hukou,jdbcType=VARCHAR},
+      residence = #{residence,jdbcType=VARCHAR},
+      grad_sch = #{gradSch,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      nature = #{nature,jdbcType=INTEGER},
+      exp_sal = #{expSal,jdbcType=VARCHAR},
+      edu = #{edu,jdbcType=VARCHAR},
+      skill_cert = #{skillCert,jdbcType=VARCHAR},
+      profile = #{profile,jdbcType=VARCHAR},
+      tags = #{tags,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=BIT},
+      gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

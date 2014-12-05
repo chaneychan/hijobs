@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dream.hijobs.dao.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.dream.hijobs.dao.domain.User" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="pwd" property="pwd" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="dev_type" property="devType" jdbcType="INTEGER" />
+    <result column="dev_id" property="devId" jdbcType="VARCHAR" />
+    <result column="app_ver" property="appVer" jdbcType="VARCHAR" />
+    <result column="latitude" property="latitude" jdbcType="DOUBLE" />
+    <result column="longitude" property="longitude" jdbcType="DOUBLE" />
+    <result column="geohash" property="geohash" jdbcType="VARCHAR" />
+    <result column="last_login" property="lastLogin" jdbcType="TIMESTAMP" />
+    <result column="gender" property="gender" jdbcType="INTEGER" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="nick" property="nick" jdbcType="VARCHAR" />
+    <result column="avatar" property="avatar" jdbcType="VARCHAR" />
+    <result column="positions" property="positions" jdbcType="VARCHAR" />
+    <result column="hukou" property="hukou" jdbcType="VARCHAR" />
+    <result column="residence" property="residence" jdbcType="VARCHAR" />
+    <result column="exp_sal" property="expSal" jdbcType="VARCHAR" />
+    <result column="edu" property="edu" jdbcType="VARCHAR" />
+    <result column="open_id" property="openId" jdbcType="VARCHAR" />
+    <result column="open_type" property="openType" jdbcType="INTEGER" />
+    <result column="is_del" property="isDel" jdbcType="BIT" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, pwd, email, mobile, dev_type, dev_id, app_ver, latitude, longitude, geohash, 
+    last_login, gender, birthday, name, nick, avatar, positions, hukou, residence, exp_sal, 
+    edu, open_id, open_type, is_del, gmt_modified, gmt_created
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.dream.hijobs.dao.domain.User" useGeneratedKeys="true" keyProperty="id">
+    insert into user (id, pwd, email, 
+      mobile, dev_type, dev_id, 
+      app_ver, latitude, longitude, 
+      geohash, last_login, gender, 
+      birthday, name, nick, 
+      avatar, positions, hukou, 
+      residence, exp_sal, edu, 
+      open_id, open_type, is_del, 
+      gmt_modified, gmt_created)
+    values (#{id,jdbcType=BIGINT}, #{pwd,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{devType,jdbcType=INTEGER}, #{devId,jdbcType=VARCHAR}, 
+      #{appVer,jdbcType=VARCHAR}, #{latitude,jdbcType=DOUBLE}, #{longitude,jdbcType=DOUBLE}, 
+      #{geohash,jdbcType=VARCHAR}, #{lastLogin,jdbcType=TIMESTAMP}, #{gender,jdbcType=INTEGER}, 
+      #{birthday,jdbcType=TIMESTAMP}, #{name,jdbcType=VARCHAR}, #{nick,jdbcType=VARCHAR}, 
+      #{avatar,jdbcType=VARCHAR}, #{positions,jdbcType=VARCHAR}, #{hukou,jdbcType=VARCHAR}, 
+      #{residence,jdbcType=VARCHAR}, #{expSal,jdbcType=VARCHAR}, #{edu,jdbcType=VARCHAR}, 
+      #{openId,jdbcType=VARCHAR}, #{openType,jdbcType=INTEGER}, #{isDel,jdbcType=BIT}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{gmtCreated,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dream.hijobs.dao.domain.User" useGeneratedKeys="true" keyProperty="id">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="pwd != null" >
+        pwd,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="devType != null" >
+        dev_type,
+      </if>
+      <if test="devId != null" >
+        dev_id,
+      </if>
+      <if test="appVer != null" >
+        app_ver,
+      </if>
+      <if test="latitude != null" >
+        latitude,
+      </if>
+      <if test="longitude != null" >
+        longitude,
+      </if>
+      <if test="geohash != null" >
+        geohash,
+      </if>
+      <if test="lastLogin != null" >
+        last_login,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="nick != null" >
+        nick,
+      </if>
+      <if test="avatar != null" >
+        avatar,
+      </if>
+      <if test="positions != null" >
+        positions,
+      </if>
+      <if test="hukou != null" >
+        hukou,
+      </if>
+      <if test="residence != null" >
+        residence,
+      </if>
+      <if test="expSal != null" >
+        exp_sal,
+      </if>
+      <if test="edu != null" >
+        edu,
+      </if>
+      <if test="openId != null" >
+        open_id,
+      </if>
+      <if test="openType != null" >
+        open_type,
+      </if>
+      <if test="isDel != null" >
+        is_del,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="pwd != null" >
+        #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="devType != null" >
+        #{devType,jdbcType=INTEGER},
+      </if>
+      <if test="devId != null" >
+        #{devId,jdbcType=VARCHAR},
+      </if>
+      <if test="appVer != null" >
+        #{appVer,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null" >
+        #{latitude,jdbcType=DOUBLE},
+      </if>
+      <if test="longitude != null" >
+        #{longitude,jdbcType=DOUBLE},
+      </if>
+      <if test="geohash != null" >
+        #{geohash,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLogin != null" >
+        #{lastLogin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nick != null" >
+        #{nick,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null" >
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="positions != null" >
+        #{positions,jdbcType=VARCHAR},
+      </if>
+      <if test="hukou != null" >
+        #{hukou,jdbcType=VARCHAR},
+      </if>
+      <if test="residence != null" >
+        #{residence,jdbcType=VARCHAR},
+      </if>
+      <if test="expSal != null" >
+        #{expSal,jdbcType=VARCHAR},
+      </if>
+      <if test="edu != null" >
+        #{edu,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null" >
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="openType != null" >
+        #{openType,jdbcType=INTEGER},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=BIT},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dream.hijobs.dao.domain.User" >
+    update user
+    <set >
+      <if test="pwd != null" >
+        pwd = #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="devType != null" >
+        dev_type = #{devType,jdbcType=INTEGER},
+      </if>
+      <if test="devId != null" >
+        dev_id = #{devId,jdbcType=VARCHAR},
+      </if>
+      <if test="appVer != null" >
+        app_ver = #{appVer,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null" >
+        latitude = #{latitude,jdbcType=DOUBLE},
+      </if>
+      <if test="longitude != null" >
+        longitude = #{longitude,jdbcType=DOUBLE},
+      </if>
+      <if test="geohash != null" >
+        geohash = #{geohash,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLogin != null" >
+        last_login = #{lastLogin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nick != null" >
+        nick = #{nick,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null" >
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="positions != null" >
+        positions = #{positions,jdbcType=VARCHAR},
+      </if>
+      <if test="hukou != null" >
+        hukou = #{hukou,jdbcType=VARCHAR},
+      </if>
+      <if test="residence != null" >
+        residence = #{residence,jdbcType=VARCHAR},
+      </if>
+      <if test="expSal != null" >
+        exp_sal = #{expSal,jdbcType=VARCHAR},
+      </if>
+      <if test="edu != null" >
+        edu = #{edu,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null" >
+        open_id = #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="openType != null" >
+        open_type = #{openType,jdbcType=INTEGER},
+      </if>
+      <if test="isDel != null" >
+        is_del = #{isDel,jdbcType=BIT},
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dream.hijobs.dao.domain.User" >
+    update user
+    set pwd = #{pwd,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      dev_type = #{devType,jdbcType=INTEGER},
+      dev_id = #{devId,jdbcType=VARCHAR},
+      app_ver = #{appVer,jdbcType=VARCHAR},
+      latitude = #{latitude,jdbcType=DOUBLE},
+      longitude = #{longitude,jdbcType=DOUBLE},
+      geohash = #{geohash,jdbcType=VARCHAR},
+      last_login = #{lastLogin,jdbcType=TIMESTAMP},
+      gender = #{gender,jdbcType=INTEGER},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      name = #{name,jdbcType=VARCHAR},
+      nick = #{nick,jdbcType=VARCHAR},
+      avatar = #{avatar,jdbcType=VARCHAR},
+      positions = #{positions,jdbcType=VARCHAR},
+      hukou = #{hukou,jdbcType=VARCHAR},
+      residence = #{residence,jdbcType=VARCHAR},
+      exp_sal = #{expSal,jdbcType=VARCHAR},
+      edu = #{edu,jdbcType=VARCHAR},
+      open_id = #{openId,jdbcType=VARCHAR},
+      open_type = #{openType,jdbcType=INTEGER},
+      is_del = #{isDel,jdbcType=BIT},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      gmt_created = #{gmtCreated,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByEmail" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where email = #{email,jdbcType=VARCHAR}
+    and is_del = 0
+  </select>
+  <select id="selectByOpen" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where open_type = #{openType,jdbcType=INTEGER} and open_id = #{openId,jdbcType=VARCHAR}
+    and is_del = 0
+  </select>
+  <select id="getUsers" resultMap="BaseResultMap"  parameterType="com.dream.hijobs.dao.param.UserPageQuery">
+      select
+          <include refid="Base_Column_List" />
+      from user
+      <where>
+<!-- 		<if test="passIds!=null and passIds.size()>0"> -->
+<!-- 			and  voucher_pass_id in  -->
+<!-- 			<foreach collection="passIds" item="id" index="index" open="(" separator="," close=")"> -->
+<!-- 				#{id} -->
+<!-- 			</foreach> -->
+<!-- 		</if> -->
+		<if test="mobile != null and mobile != '' " >
+			and mobile = #{mobile,jdbcType=VARCHAR}
+		</if>
+      </where>
+  	  order by gmt_created asc
+	  limit #{startRow},#{pageSize}
+  </select>
+  <select id="getUsersCount" resultType="int" parameterType="com.dream.hijobs.dao.param.UserPageQuery">
+      select count(*)
+      from user
+      <where>
+		<if test="mobile != null and mobile != '' " >
+			and mobile = #{mobile,jdbcType=VARCHAR}
+		</if>
+      </where>
+  </select>
+</mapper>

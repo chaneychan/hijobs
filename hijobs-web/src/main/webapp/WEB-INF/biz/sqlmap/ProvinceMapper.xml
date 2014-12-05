@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dream.hijobs.dao.mapper.ProvinceMapper" >
+  <resultMap id="BaseResultMap" type="com.dream.hijobs.dao.domain.Province" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="province_code" property="provinceCode" jdbcType="VARCHAR" />
+    <result column="province_name" property="provinceName" jdbcType="VARCHAR" />
+    <result column="is_special" property="isSpecial" jdbcType="TINYINT" />
+    <result column="gmt_modify" property="gmtModify" jdbcType="TIMESTAMP" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, province_code, province_name, is_special, gmt_modify, gmt_create
+  </sql>
+  <!-- 
+  	功能说明：查询所有省级行政区 
+  	前台 或 后台： 前台 频率：10000/d 
+  	分表数量：无 
+  	是否有缓存：无 
+  -->
+  <select id="getAllprovinceList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from province
+  </select>
+</mapper>

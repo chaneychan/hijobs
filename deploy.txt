@@ -1,0 +1,5 @@
+mvn deploy:deploy-file -DgroupId=com.zhima.youhuoer -DartifactId=youhuoer-client  -Dversion=1.0.0-SNAPSHOT -Dpackageing=jar -Dfile=D:\zhima\youhuoer-client\target\youhuoer-client.jar -Durl=http://121.40.78.136:8081/nexus/content/repositories/snapshots/ -DrepositoryId=pajk.snapshots.dist
+
+
+
+mvn deploy:deploy-file -DgroupId=com.zhima.youhuoer -DartifactId=youhuoer-client  -Dversion=1.0.0-SNAPSHOT -Dpackageing=jar -Dclassifier=sources -Dfile=D:\diablo_im_message\youhuoer-client\target\youhuoer-client-sources.jar -Durl=http://121.40.78.136:8081/nexus/content/repositories/snapshots/ -DrepositoryId=pajk.snapshots.dist

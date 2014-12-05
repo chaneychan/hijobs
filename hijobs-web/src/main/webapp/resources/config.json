@@ -1,0 +1,9 @@
+﻿{
+  "server": "http://youhuoer.com/serverlet/",
+  "imageServer": "http://youhuoer.com/images",
+  "upgradeLink": "http://youhuoer.com/apk/youhuoer.apk",
+  "upgradeTitle": "版本更新",
+  "upgradeMessage": "发现版本更新，修复BUG",
+  "upgradeForce": false,
+  "upgradeVersion": 1.0901
+}

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd "
+         version="2.5">
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/application.xml</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>logbackConfigLocation</param-name>
+        <param-value>/WEB-INF/logback.xml</param-value>
+    </context-param>
+
+	<welcome-file-list>
+		<welcome-file>/index.jsp</welcome-file>
+	</welcome-file-list>
+
+    <!-- Filter 定义 -->
+    <!-- Character Encoding filter -->
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>sessionFilter</filter-name>
+        <filter-class>com.dream.hijobs.web.filter.SessionFilter</filter-class>
+        <init-param>  
+            <!--不拦截的路径  空格分隔  -->
+            <param-name>exclude</param-name>  
+            <param-value>reg load file</param-value>  
+        </init-param>  
+    </filter>
+    <filter-mapping>
+        <filter-name>sessionFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <listener>
+        <description>logback Listener</description>
+        <listener-class>com.dream.hijobs.web.listener.LogbackConfigListener</listener-class>
+    </listener>
+
+    <listener>
+        <description>spring Listener</description>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    
+   <!-- Processes application requests -->  
+    <servlet>  
+        <servlet-name>springMVC</servlet-name>  
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>  
+        <init-param>  
+            <param-name>contextConfigLocation</param-name>  
+            <param-value>/WEB-INF/springMVC-servlet.xml</param-value>  
+        </init-param>  
+        <load-on-startup>1</load-on-startup>  
+    </servlet>  
+          
+    <servlet-mapping>  
+        <servlet-name>springMVC</servlet-name>  
+        <url-pattern>/</url-pattern>  
+    </servlet-mapping>  
+
+   	<filter>  
+	    <filter-name>HiddenHttpMethodFilter</filter-name>  
+	    <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>  
+	</filter>  
+
+	<filter-mapping>  
+	    <filter-name>HiddenHttpMethodFilter</filter-name>  
+	    <servlet-name>springMVC</servlet-name>  
+	</filter-mapping>
+
+	<session-config>
+    	<session-timeout>500</session-timeout>
+  	</session-config>
+
+	<!-- 通过错误码来配置error-page ,配置了当系统发生404错误时，跳转到错误处理页面NotFound.jsp。 -->
+	<error-page> 
+	    <error-code>404</error-code> 
+	    <location>/notfound.jsp</location> 
+	</error-page> 
+	<error-page> 
+	    <error-code>503</error-code> 
+	    <location>/notfound.jsp</location> 
+	</error-page> 
+	<!--  通过异常的类型配置error-page ,配置了当系统发生java.lang.NullException（即空指针异常）时，跳转到错误处理页面error.jsp  -->
+	<error-page> 
+	    <exception-type>java.lang.Exception</exception-type> 
+	    <location>/error.jsp</location> 
+	</error-page>
+	
+</web-app>
