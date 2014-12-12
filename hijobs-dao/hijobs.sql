@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version: 5.5.9)
-# Date: 2014-12-01 10:57:09
+# Date: 2014-12-12 18:46:28
 # Generator: MySQL-Front 5.3  (Build 4.156)
 
 /*!40101 SET NAMES utf8 */;
@@ -88,7 +88,7 @@ CREATE TABLE `company` (
   `nature` varchar(100) DEFAULT NULL COMMENT '公司性质-取值于数据字典',
   `industry` varchar(100) DEFAULT NULL COMMENT '公司行业-取值于数据字典',
   `profile` varchar(1000) DEFAULT NULL COMMENT '公司简介',
-  `image_urls` varchar(100) DEFAULT NULL COMMENT '企业图片url,逗号分隔',
+  `image_urls` varchar(1000) DEFAULT NULL COMMENT '企业图片url,逗号分隔',
   `latitude` double(10,6) DEFAULT NULL COMMENT '经度',
   `longitude` double(10,6) DEFAULT NULL COMMENT '纬度',
   `geohash` varchar(20) DEFAULT NULL,
@@ -96,12 +96,13 @@ CREATE TABLE `company` (
   `gmt_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `gmt_created` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='注册企业';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='注册企业';
 
 #
 # Data for table "company"
 #
 
+INSERT INTO `company` VALUES (1,'高程','1212122','23233',0,'剑河路','2000','私有','电子','说服力卡缴费','b3NzLTE0MTgzNzMzNDI1NDY3ZTNlNjcwOWM5M2Q3MGNmMDU3ZGUwMDBmYWRjZDEwMGJhYTEyYjMzLmpwZw|b3NzLTE0MTgzODA5ODY5NjdtY21nMTIxMC5qcGc|b3NzLTE0MTgzODA5ODY5NjdzeWpqamoxMjEwLmpwZw',0.000000,0.000000,NULL,0,'2014-12-03 13:41:36','2014-12-03 13:41:36');
 
 #
 # Structure for table "interview"
