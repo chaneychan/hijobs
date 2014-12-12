@@ -27,5 +27,11 @@ public interface OssService {
 	 * @return 文件url
 	 */
 	public Result<String> putFile(String fileName ,InputStream inputStream ,long contentLength);
-
+	
+	/**
+	 * 删除文件
+	 * @param url
+	 * @return
+	 */
+	public boolean deleteFile(String url);
 }

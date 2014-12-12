@@ -88,4 +88,14 @@ public class OssBase {
 		}
 		return null;
 	}
+	
+	protected boolean deleteObject(String key) {
+		try {
+			getClient().deleteObject(bucketName, key);
+		} catch (Throwable t) {
+			logger.error("oss delete error", t);
+			return false;
+		}
+		return true;
+	}
 }

@@ -12,10 +12,6 @@
         <param-value>/WEB-INF/logback.xml</param-value>
     </context-param>
 
-	<welcome-file-list>
-		<welcome-file>/index.jsp</welcome-file>
-	</welcome-file-list>
-
     <!-- Filter 定义 -->
     <!-- Character Encoding filter -->
     <filter>
@@ -39,9 +35,9 @@
         <filter-name>sessionFilter</filter-name>
         <filter-class>com.dream.hijobs.web.filter.SessionFilter</filter-class>
         <init-param>  
-            <!--不拦截的路径  空格分隔  -->
+<!--             不拦截的路径  空格分隔  -->
             <param-name>exclude</param-name>  
-            <param-value>reg load file</param-value>  
+            <param-value>reg load htm image css js file</param-value>  
         </init-param>  
     </filter>
     <filter-mapping>
@@ -74,6 +70,15 @@
         <servlet-name>springMVC</servlet-name>  
         <url-pattern>/</url-pattern>  
     </servlet-mapping>  
+    
+    <servlet-mapping>   
+        <servlet-name>default</servlet-name>  
+        <url-pattern>*.html</url-pattern>     
+    </servlet-mapping>    
+    <servlet-mapping>   
+        <servlet-name>default</servlet-name>  
+        <url-pattern>*.htm</url-pattern>     
+    </servlet-mapping>    
 
    	<filter>  
 	    <filter-name>HiddenHttpMethodFilter</filter-name>  

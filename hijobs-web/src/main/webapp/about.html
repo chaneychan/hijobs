@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<title>ZAKER</title>
+<meta name="keywords" content="zaker,ZAKER,iPhone软件,iPhone客户端,android软件,wp7软件" />
+<meta name="description" content="ZAKER是国内较受欢迎的互动分享和个性化定制的移动阅读平台。它将资讯、博客、报纸、杂志、微信、图片等众多内容，按照用户意愿聚合到一起，实现深度个性化定制。ZAKER具有强大的互动分享功能，可将任何内容通过微博、微信、邮件、短信等转发分享。" /> 
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="css/new_style.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/html5.js"></script>
+<script src="js/respond.js"></script>
+<script src="js/about_map.js"></script>
+
+<!-- 百度地图 -->
+<script type="text/javascript" src="../api.map.baidu.com/api-v=2.0"></script>
+<script type="text/javascript" src="../api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+<link rel="stylesheet" href="../api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+
+</head>
+<body>
+<!--导航条-->
+	<div id="navigator">
+		<div id="navigator_inner">
+			<a href="index.html"><img id="logo_img" src="images/new/homepage/LOGO.png" /></a>
+			<ul id="na_ul">
+				<li><a href="index.html"><span>首页</span></a></li>
+				<li class="active_title"><a href="about.html"><span>公司</span></a></li>
+				<li><a href="contact.html"><span>合作</span></a></li>
+				<li><a href="news.html"><span>新闻</span></a></li>
+				<li><a href="job.php.htm"><span>加入</span></a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="about_banner">
+		<img src="images/new/about/banner.jpg" />
+	</div>
+<!--正文-->
+	<div id="about_main">
+		<div id="about_main_inner">
+			<div class="about_content">
+				<div class="about_content_left">公司简介</div>
+				<div class="about_content_right">
+					<div class="about_content_s"><span>广州坚和网络科技有限公司一直专注于移动互联网阅读领域，以产品为导向，产品研发为核心，致力于为用户传递有价值的资讯。ZAKER于2011年成立，并于同年获得联想投资的大额投资。</span></div>
+				</div>
+			</div>
+			<div class="about_content">
+				<div class="about_content_left">产品简介</div>
+				<div class="about_content_right">
+					<div class="about_content_s"><span>ZAKER是国内最受欢迎的互动分享和个性化定制的阅读平台，它将资讯、报纸、杂志、图片、微信等众多内容，按照用户意愿聚合到一起，实现深度个性化定制。它打造出最前沿的资讯轻社区，满足用户基于不同阅读兴趣的互动话题讨论。它拥有强大的分享功能，打通多个社交媒体平台，可将任何内容通过邮件、短信、微博、微信、QQ等转发分享。</span></div>
+				</div>
+			</div>
+			<div class="about_content">
+				<div class="about_content_left">办公地点</div>
+				<div class="about_content_right about_address">
+					<div class="about_content_s">
+						<span>总公司</span>
+						<br />
+						<span>广州市天河区五山路261号省农机所ZAKER荷花庭苑 <a id="map_gz" data-toggle="modal" data-target="#myModal">查看地图</a></span>
+						<br />
+						<span>020-38465849</span>
+					</div>
+					<div class="about_content_s">
+						<span>北京分公司</span>
+						<br />
+						<span>北京市海淀区中关村东路66号世纪科贸大厦B座2303室 <a id="map_bj" data-toggle="modal" data-target="#myModal">查看地图</a></span>
+						<br />
+						<span>010-62670939</span>
+					</div>
+					<div class="about_content_s">
+						<span>上海分公司</span>
+						<br />
+						<span>上海市黄浦区局门路458号7号楼7601室 <a id="map_sh" data-toggle="modal" data-target="#myModal">查看地图</a></span>
+						<br />
+					</div>
+				</div>
+			</div>
+			<div class="about_content">
+				<div class="about_content_left">获得荣耀</div>
+				<div class="about_content_right glory_container">
+					<div class="glory_half_l">
+					
+						<div class="about_content glory_top">
+							<div class="about_content_left glory_year">2014</div>
+							<div class="about_content_right glory_content">
+								<div class="about_content_s">
+									<span>第三届GMGC全球移动游戏大会中国手机应用企业榜TOP20</span>
+									<br />
+									<span>易观之星新媒体类“最佳移动资讯应用”奖</span>
+									<br />
+									<span>第九届清科中国最具投资价值企业“中国V”50强</span>
+								</div>
+							</div>
+						</div>
+						<div class="about_content glory_part">
+							<div class="about_content_left glory_year">2012</div>
+							<div class="about_content_right glory_content">
+								<div class="about_content_s">
+									<span>手机之家2012年年度最佳手机阅读</span>
+									<br />
+									<span>创业邦中国年度创新成长企业100强</span>
+									<br />
+									<span>威锋网最受锋友喜欢的APP软件TOP10</span>
+									<br />
+									<span>2012年安卓全球开发者大会最佳应用平台TOP10</span>
+									<br />
+									<span>2012中国新媒体30强 年度最具气质新媒体</span>
+									<br />
+									<span>GMIC2012开发者星球TOP50应用</span>
+									<br />
+									<span>2011-2012年度中国IT品牌风云榜 年度最佳社交阅读APP</span>
+									<br />
+									<span>2011华军软件园软件评选优秀手机软件奖</span>
+								</div>
+							</div>
+						</div>
+						<div class="about_content glory_part">
+							<div class="about_content_left glory_year">2010</div>
+							<div class="about_content_right glory_content">
+								<div class="about_content_s">
+									<span>中关村在线2009-2010年度创新应用奖</span>
+								</div>
+							</div>
+						</div>
+						
+					</div><div class="glory_half_r">
+						<div class="about_content glory_part">
+							<div class="about_content_left glory_year">2013</div>
+							<div class="about_content_right glory_content">
+								<div class="about_content_s">
+									<span>速途网互联网风云榜评选 年度十大移动互联网应用</span>
+									<br />
+									<span>2013年终软件评选最具影响力奖</span>
+									<br />
+									<span>艾媒网最佳新闻客户端奖</span>
+									<br />
+									<span>创业邦2013中国年度创新成长企业100强</span>
+									<br />
+									<span>新闻周刊年度十佳中文APP聚合阅读典范</span>
+									<br />
+									<span>全球移动游戏及渠道博览会中国手机应用企业榜TOP50</span>
+									<br />
+									<span>第三届中国产品创新高峰论坛手机企业TOP100</span>
+									<br />
+									<span>太平洋电脑网2013年中国好软件之潜力无限奖</span>
+								</div>
+							</div>
+						</div>
+						<div class="about_content glory_part">
+							<div class="about_content_left glory_year">2011</div>
+							<div class="about_content_right glory_content">
+								<div class="about_content_s">
+									<span>TechWeb最受关注的十大移动互联网应用奖</span>
+									<br />
+									<span>苹果 App Store Rewind 2011年度最佳新闻类产品</span>
+									<br />
+									<span>iPad版上榜苹果 App Store 2011年免费应用软件金榜</span>
+									<br />
+									<span>iPhone版获苹果 App Store 2011年度最佳产品</span>
+									<br />
+									<span>易观国际最具投资价值之星</span>
+									<br />
+									<span>SOHU年度网络应用</span>
+									<br />
+									<span>IMEA2011移动应用大奖</span>
+									<br />
+									<span>新周刊年度最有价值手机APP</span>
+									<br />
+									<span>2011中国移动互联网年度评选年度网络应用奖</span>
+									<br />
+									<span>数字出版博览会数字出版年度新锐品牌称号</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title" id="myModalLabel">ZAKER</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<div id="allmap"></div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+<!--底部-->
+	<div id="footer">
+		<div id="footer_inner">
+			<span>Copyright © 2014 ZAKER.All Rights Reserved</span>
+			<br />
+			<a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">粤ICP备12019658号-1</a> 互联网出版许可证：<a href="http://www.gapp.gov.cn/zongshu/serviceContent1.shtml?ID=11037" target="_blank">新出审字[2013]211号</a>
+		</div>
+	</div>
+
+</body>
+</html>

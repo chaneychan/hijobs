@@ -15,6 +15,9 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.dream.hijobs.service.dto.Result;
@@ -22,6 +25,7 @@ import com.dream.hijobs.service.dto.ResultCode;
 import com.dream.hijobs.service.token.Token;
 import com.dream.hijobs.service.token.TokenHelper;
 import com.dream.hijobs.util.constants;
+import com.dream.hijobs.web.controller.FileController;
 
 /**
  * Token验证与SessionFilter
@@ -30,6 +34,7 @@ import com.dream.hijobs.util.constants;
  */
 public class SessionFilter implements Filter {
 	
+    private static final Logger logger = LoggerFactory.getLogger(SessionFilter.class);
     private static ThreadLocal<TokenHelper> tokenHelper = new ThreadLocal<TokenHelper>();
     private List<String> list = new ArrayList<String>();  
     
@@ -54,8 +59,8 @@ public class SessionFilter implements Filter {
         
         String path=((HttpServletRequest)request).getServletPath();  
 //      System.out.println("path="+path);  
-        for(int i=0;i<list.size();i++){  
-            if(path.indexOf(list.get(i))!=-1){//不需要拦截  
+        for(int i=0;i<list.size();i++){
+            if(path.indexOf(list.get(i))!=-1 || "/".equals(path)){//不需要拦截  ,增加根目录不拦截,让用户可以通过域名直接访问
             	chain.doFilter(request, response);
             	return;
             }
@@ -92,7 +97,7 @@ public class SessionFilter implements Filter {
             chain.doFilter(request, response);
             return;
         }
-        
+        logger.info("token failed validation, tk:"+tk);
         response.getWriter().write(JSON.toJSONString(new Result<String>(ResultCode.ILLEGAL_USER), SerializerFeature.WriteNullStringAsEmpty,SerializerFeature.QuoteFieldNames,SerializerFeature.WriteMapNullValue,SerializerFeature.DisableCircularReferenceDetect));
     }
 

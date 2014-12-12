@@ -50,8 +50,9 @@ public class OssServiceImpl extends OssBase implements OssService {
 		//TODO 关闭流
 		return inputStream;
 	}
-	
-	public static void main(String[] args) {
-		
+
+	@Override
+	public boolean deleteFile(String key) {
+		return deleteObject(key);
 	}
 }

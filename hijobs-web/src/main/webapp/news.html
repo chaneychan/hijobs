@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<title>ZAKER</title>
+<meta name="keywords" content="zaker,ZAKER,iPhone软件,iPhone客户端,android软件,wp7软件" />
+<meta name="description" content="ZAKER是国内较受欢迎的互动分享和个性化定制的移动阅读平台。它将资讯、博客、报纸、杂志、微信、图片等众多内容，按照用户意愿聚合到一起，实现深度个性化定制。ZAKER具有强大的互动分享功能，可将任何内容通过微博、微信、邮件、短信等转发分享。" /> 
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="css/new_style.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/html5.js"></script>
+<script src="js/respond.js"></script>
+<script src="js/news_list_data.js"></script>
+<script src="js/video_scroll.js"></script>
+<script src="js/video_play.js"></script>
+</head>
+<body>
+<!--导航条-->
+	<div id="navigator">
+		<div id="navigator_inner">
+			<a href="index.html"><img id="logo_img" src="images/new/homepage/LOGO.png" /></a>
+			<ul id="na_ul">
+				<li><a href="index.html"><span>首页</span></a></li>
+				<li><a href="about.html"><span>公司</span></a></li>
+				<li><a href="contact.html"><span>合作</span></a></li>
+				<li class="active_title"><a href="news.html"><span>新闻</span></a></li>
+				<li><a href="job.php.htm"><span>加入</span></a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="about_banner">
+		<img src="images/new/news/banner.jpg" />
+	</div>
+<!--正文-->
+	<div class="container-fluid">
+		<div class="row">
+		<div class="" id="main_div">
+			<div class="news_info"  id="news_info">
+				<img src="images/new/news/news_info.png" id="news_info_img" />
+				<div class="col-xs-offset-3 col-xs-6 news_info_list" id="news_info_list">
+					<div>加载失败,请重新加载...</div>
+				</div>
+				<div class="col-xs-6" id="prev_div">
+					<img src="images/new/news/prev.png" onclick="getNewsListData('prev')" class="prev_able" />
+				</div>
+				<div class="col-xs-6" id="next_div">
+					<img src="images/new/news/next.png" onclick="getNewsListData('next')" class="next_able" />
+				</div>
+			</div>
+			<div class="news_video" id="news_video">
+				<img src="images/new/news/news_video.png" />
+				<div class="carousel slide">
+					<div class="carousel-inner" role="listbox" id="listVideo">
+						<!-- 群星 -->
+					    <div class="item active" title="群星推荐ZAKER" data-src="../player.youku.com/player.php/sid/XODEwMzQ4NzY4/v.swf" data-toggle="modal" data-target="#myModal">
+					      <img src="images/new/news/1.jpg" />
+					    </div>
+					    <!-- 心花怒放 -->
+					    <div class="item active" title="《心花路放》宁浩、黄渤、徐峥推荐ZAKER" data-src="../player.youku.com/player.php/sid/XNzg5OTIzNTMy/v.swf" data-toggle="modal" data-target="#myModal">
+					    	<img src="images/new/news/2.jpg" />
+					    </div>
+					    <!-- 一生一世 高圆圆 -->
+					    <div class="item active" title="《一生一世》清纯女神高圆圆推荐" data-src="../player.youku.com/player.php/sid/XNzczMjgxNzY4/v.swf" data-toggle="modal" data-target="#myModal">
+					      <img src="images/new/news/3.jpg" />
+					    </div>
+					    <!-- 追爱大布局 陈柏林 -->
+					    <div class="item active" title="《追爱大布局》陈柏霖推荐ZAKER" data-src="../player.youku.com/player.php/sid/XNzExNjUwNTY4/v.swf" data-toggle="modal" data-target="#myModal">
+					      <img src="images/new/news/4.jpg" />
+					    </div>
+					    <!-- 笔仙3 江一燕 -->
+					    <div class="item" title='《笔仙3》"文艺女鬼"江一燕推荐ZAKER' data-src="../player.youku.com/player.php/sid/XNzM3MTYyMDIw/v.swf" data-toggle="modal" data-target="#myModal">
+					      <img src="images/new/news/5.jpg" />
+					    </div>
+					</div>
+				</div>
+				<div class="col-xs-6" id="video_prev">
+					<img src="images/new/news/prev.png" class="prev_able" />
+				</div>
+				<div class="col-xs-6" id="video_next">
+					<img src="images/new/news/next.png" class="next_able" />
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title" id="myModalLabel">　 　</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<div id="video_play"></div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+<!--底部-->
+	<div id="footer">
+		<div id="footer_inner">
+			<span>Copyright © 2014 ZAKER.All Rights Reserved</span>
+			<br />
+			<a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">粤ICP备12019658号-1</a> 互联网出版许可证：<a href="http://www.gapp.gov.cn/zongshu/serviceContent1.shtml?ID=11037" target="_blank">新出审字[2013]211号</a>
+		</div>
+	</div>
+
+</body>
+</html>

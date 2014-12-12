@@ -64,10 +64,12 @@
 			<groupId>cn.jpush.api</groupId>
 			<artifactId>jpush-client</artifactId>
 		</dependency>
+		<!--
 		<dependency>
 			<groupId>com.dream.hijobs</groupId>
 			<artifactId>ccp-rest</artifactId>
 		</dependency>
+		-->
 		<dependency>
 			<groupId>com.dream.hijobs</groupId>
 			<artifactId>hijobs-util</artifactId>

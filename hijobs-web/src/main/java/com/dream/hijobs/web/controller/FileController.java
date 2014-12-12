@@ -1,5 +1,6 @@
 package com.dream.hijobs.web.controller;
 
+import java.io.File;
 import java.io.InputStream;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +27,7 @@ import com.dream.hijobs.service.dto.ResultCode;
 import com.dream.hijobs.service.oss.OssService;
 
 @Controller
-@RequestMapping(value="file")
+@RequestMapping(value="/file")
 public class FileController {
 
     private static final Logger logger = LoggerFactory.getLogger(FileController.class);
@@ -35,7 +37,7 @@ public class FileController {
 	
 	@RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public Result<String> upload(HttpServletRequest request) {
+    public String upload(HttpServletRequest request) {
 		Result<String> result = new Result<String>();
 		try {
 	        FileItemFactory factory = new DiskFileItemFactory();
@@ -48,18 +50,19 @@ public class FileController {
 //                  String realPath = request.getSession().getServletContext().getRealPath("/WEB-INF/upload");  
 //                  这里不必处理IO流关闭的问题，因为FileUtils.copyInputStreamToFile()方法内部会自动把用到的IO流关掉，我是看它的源码才知道的  
 //                  FileUtils.copyInputStreamToFile(item.getInputStream(), new File(realPath, item.getName()));  
-//                	result= ossService.putFile(item.getName(),item.getInputStream(),item.getSize());
-//                	result.setValue("fasjf");
-                	logger.info(result.getValue());
+                	result= ossService.putFile(item.getName(),item.getInputStream(),item.getSize());
+                	if (result.getRc().isSuccess()) {
+                		logger.info(result.getValue());
+						return result.getValue();
+					}
                 }
             }
 		} catch (Exception e) {
 			result.setRc(ResultCode.FILE_UPLOAD_FAIL);
 			logger.error("file upload fail",e);
 		} 
-		return result;
+		return "";
     }
-	
 	
 	@RequestMapping(value="{url}",method = RequestMethod.GET)
     public void download(@PathVariable String url,HttpServletRequest request,HttpServletResponse resp) {
@@ -67,9 +70,18 @@ public class FileController {
 //			String realPath = request.getSession().getServletContext().getRealPath("/WEB-INF/upload");  
 //			FileUtils.copyFile(new File(realPath, url), resp.getOutputStream());
 			InputStream inputStream = ossService.getFile(url);
-			FileCopyUtils.copy(inputStream, resp.getOutputStream());
+			if (inputStream != null) {
+				FileCopyUtils.copy(inputStream, resp.getOutputStream());
+			}
 		} catch (Exception e) {
 			logger.error("file download fail",e);
 		}
     }
+	
+	@RequestMapping(value="{url}",method = RequestMethod.DELETE)
+	@ResponseBody
+	public boolean delete(@PathVariable String url,HttpServletRequest request,HttpServletResponse resp) {
+		logger.info("delete file url:{}",url);
+		return ossService.deleteFile(url);
+	}
 }
