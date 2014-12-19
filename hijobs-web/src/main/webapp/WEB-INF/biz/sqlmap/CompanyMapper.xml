@@ -254,4 +254,11 @@
 		</if>
       </where>
   </select>
+  <update id="deleteByLogical" parameterType="java.lang.Long">
+    update company
+    set
+      is_del = 1,
+      gmt_modified = now()
+    where id = #{id,jdbcType=BIGINT}
+  </update>
 </mapper>

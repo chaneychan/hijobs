@@ -40,6 +40,6 @@ public class CompanyRepository {
 	}
 	
 	public int delete(long id){
-		return mapper.deleteByPrimaryKey(id);
+		return mapper.deleteByLogical(id);
 	}
 }

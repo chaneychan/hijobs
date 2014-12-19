@@ -1,6 +1,5 @@
 package com.dream.hijobs.web.controller;
 
-import java.io.File;
 import java.io.InputStream;
 import java.util.List;
 
@@ -11,22 +10,20 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.dream.hijobs.service.dto.Result;
 import com.dream.hijobs.service.dto.ResultCode;
 import com.dream.hijobs.service.oss.OssService;
 
-@Controller
+@RestController
 @RequestMapping(value="/file")
 public class FileController {
 
@@ -36,7 +33,6 @@ public class FileController {
     private OssService ossService;
 	
 	@RequestMapping(method = RequestMethod.POST)
-    @ResponseBody
     public String upload(HttpServletRequest request) {
 		Result<String> result = new Result<String>();
 		try {
@@ -64,6 +60,12 @@ public class FileController {
 		return "";
     }
 	
+	/**
+	 * 需要改成域名直接访问，不需要验证
+	 * @param url
+	 * @param request
+	 * @param resp
+	 */
 	@RequestMapping(value="{url}",method = RequestMethod.GET)
     public void download(@PathVariable String url,HttpServletRequest request,HttpServletResponse resp) {
 		try {
@@ -73,13 +75,13 @@ public class FileController {
 			if (inputStream != null) {
 				FileCopyUtils.copy(inputStream, resp.getOutputStream());
 			}
+			//TODO  需要改成域名直接访问，不需要验证
 		} catch (Exception e) {
 			logger.error("file download fail",e);
 		}
     }
 	
 	@RequestMapping(value="{url}",method = RequestMethod.DELETE)
-	@ResponseBody
 	public boolean delete(@PathVariable String url,HttpServletRequest request,HttpServletResponse resp) {
 		logger.info("delete file url:{}",url);
 		return ossService.deleteFile(url);

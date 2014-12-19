@@ -21,4 +21,6 @@ public interface CompanyMapper {
     List<Company> getCompanys(CompanyPageQuery userPageQuery);
     
     int getCompanysCount(CompanyPageQuery userPageQuery);
+    
+    int deleteByLogical(Long id);
 }

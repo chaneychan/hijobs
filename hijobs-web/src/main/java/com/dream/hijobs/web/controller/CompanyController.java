@@ -6,11 +6,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.dream.hijobs.dao.domain.Company;
 import com.dream.hijobs.dao.param.CompanyPageQuery;
@@ -20,7 +19,7 @@ import com.dream.hijobs.service.dto.CompanyPageDTO;
 import com.dream.hijobs.service.dto.Result;
 import com.dream.hijobs.service.dto.ResultCode;
 
-@Controller
+@RestController
 @RequestMapping("/company")
 public class CompanyController {
 
@@ -30,7 +29,6 @@ public class CompanyController {
     private CompanyService companyService;
 	
 	@RequestMapping("page/{page}")
-	@ResponseBody
 	public Result<CompanyPageDTO> getCompanys(@PathVariable int page, HttpServletRequest request){
 		String name = request.getParameter("key");
 		logger.info("company search key:{},page:{}",name,page);
@@ -41,7 +39,6 @@ public class CompanyController {
 	}
 	
 	@RequestMapping("{id}")
-	@ResponseBody
 	public Result<CompanyDTO> getCompany(@PathVariable long id,HttpServletRequest request){
 		logger.info("company search id:{}",id);
 		return companyService.getCompany(id);
@@ -49,7 +46,6 @@ public class CompanyController {
 	
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value="{id}",method=RequestMethod.PUT)
-	@ResponseBody
 	public Result update(HttpServletRequest request,CompanyDTO companyDTO,@PathVariable long id){
 		if (companyDTO == null || companyDTO.getId() == null) {
 			return new Result(ResultCode.COMPANY_IS_NULL);
@@ -62,7 +58,6 @@ public class CompanyController {
 	
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(method=RequestMethod.POST)
-	@ResponseBody
 	public Result add(HttpServletRequest request,CompanyDTO companyDTO){
 		if (companyDTO == null) {
 			return new Result(ResultCode.COMPANY_IS_NULL);
@@ -74,7 +69,6 @@ public class CompanyController {
 	
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value="{id}",method=RequestMethod.DELETE)
-	@ResponseBody
 	public Result add(HttpServletRequest request,@PathVariable long id){
 		return companyService.delete(id);
 	}

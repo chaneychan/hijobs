@@ -6,11 +6,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.dream.hijobs.dao.domain.User;
 import com.dream.hijobs.dao.param.UserPageQuery;
@@ -23,7 +22,7 @@ import com.dream.hijobs.service.token.Token;
 import com.dream.hijobs.service.user.UserService;
 import com.dream.hijobs.util.constants;
 
-@Controller
+@RestController
 @RequestMapping("/user")
 public class UserController {
 
@@ -36,7 +35,6 @@ public class UserController {
 
 	
 	@RequestMapping(value="load")
-	@ResponseBody
 	public Result<String> load(HttpServletRequest request,UserDTO userDTO) {
 		Result<String> result = new Result<String>();
 		if (userDTO == null) {
@@ -50,7 +48,6 @@ public class UserController {
 	}
 	
 	@RequestMapping("loadOpen")
-	@ResponseBody
 	public Result<String> loadByOpen(HttpServletRequest request,UserDTO userDTO) {
 		Result<String> result = new Result<String>();
 		if (userDTO == null) {
@@ -64,7 +61,6 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="reg",method=RequestMethod.POST)
-	@ResponseBody
 	public Result<String> reg(HttpServletRequest request,UserDTO userDTO) {
 		User user = new User();
 		BeanUtils.copyProperties(userDTO ,user);
@@ -72,7 +68,6 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="regOpen")
-	@ResponseBody
 	public Result<String> regByOpen(HttpServletRequest request,UserDTO userDTO) {
 		User user = new User();
 		BeanUtils.copyProperties(userDTO ,user);
@@ -80,7 +75,6 @@ public class UserController {
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT)
-	@ResponseBody
 	public Result<String> update(HttpServletRequest request,UserDTO userDTO){
 		Token token = (Token) request.getAttribute(constants.TOKEN_KEY);
 		User user = new User();
@@ -89,7 +83,6 @@ public class UserController {
 	}
 	
 	@RequestMapping("page/{page}")
-	@ResponseBody
 	public Result<UserPageDTO> getUsers(@PathVariable String page, HttpServletRequest request){
 		String mobile = request.getParameter("key");
 		logger.info("user search key:{},page:{}",mobile,page);
