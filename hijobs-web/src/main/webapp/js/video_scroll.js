@@ -17,7 +17,7 @@ $(document).ready(function(){
 			function(){
 				$(this).prepend(function(index,html){
 					old_html = html;
-					return '<img src="images/new/news/play_btn.png"/*tpa=http://www.myzaker.com/js/images/new/news/play_btn.png*/ style="z-index:1020;top: 55px;left: 85px;position:absolute;" /><div style="top: 0;right: 0;bottom: 0;left: 0;position:absolute;filter:alpha(opacity=70);opacity:0.7;background:#000;"></div>';
+					return '<img src="images/new/news/play_btn.png" style="z-index:1020;top: 55px;left: 85px;position:absolute;" /><div style="top: 0;right: 0;bottom: 0;left: 0;position:absolute;filter:alpha(opacity=70);opacity:0.7;background:#000;"></div>';
 				});
 			},function(){
 				$(this).html(old_html);

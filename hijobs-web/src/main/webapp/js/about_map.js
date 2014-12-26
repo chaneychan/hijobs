@@ -44,7 +44,7 @@ $(document).ready(function(){
 				map.enableScrollWheelZoom();
 		
 				var content = '<div style="margin:0;line-height:20px;padding:2px;">' +
-//				                '<img src="../img/baidu.jpg"/*tpa=http://www.myzaker.com/img/baidu.jpg*/ alt="" style="float:right;zoom:1;overflow:hidden;width:100px;height:100px;margin-left:3px;"/>' +
+//				                '<img src="../img/baidu.jpg" alt="" style="float:right;zoom:1;overflow:hidden;width:100px;height:100px;margin-left:3px;"/>' +
 				                '地址：北京市海淀区中关村东路66号世纪科贸大夏B座2303室<br/>电话：010-62670939' +
 				              '</div>';
 		
@@ -77,7 +77,7 @@ $(document).ready(function(){
 				map.enableScrollWheelZoom();
 		
 				var content = '<div style="margin:0;line-height:20px;padding:2px;">' +
-//				                '<img src="../img/baidu.jpg"/*tpa=http://www.myzaker.com/img/baidu.jpg*/ alt="" style="float:right;zoom:1;overflow:hidden;width:100px;height:100px;margin-left:3px;"/>' +
+//				                '<img src="../img/baidu.jpg" alt="" style="float:right;zoom:1;overflow:hidden;width:100px;height:100px;margin-left:3px;"/>' +
 				                '地址：上海市黄浦区局门路458号7号楼7601室' +
 				              '</div>';
 		

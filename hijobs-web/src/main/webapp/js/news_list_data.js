@@ -3,17 +3,17 @@ $(document).ready(function(){
 	getNewsListData('current');//首次加载
 
 	$('.next_able').mouseover(function(){
-		$(this).not(".next_disable").attr('src','images/new/news/next_active.png'/*tpa=http://www.myzaker.com/js/images/new/news/next_active.png*/);
+		$(this).not(".next_disable").attr('src','images/new/news/next_active.png');
 	});
 	$('.next_able').mouseout(function(){
-		$(this).not(".next_disable").attr('src','images/new/news/next.png'/*tpa=http://www.myzaker.com/js/images/new/news/next.png*/);
+		$(this).not(".next_disable").attr('src','images/new/news/next.png');
 	});
 	
 	$('.prev_able').mouseover(function(){
-		$(this).not(".prev_disable").attr('src','images/new/news/prev_active.png'/*tpa=http://www.myzaker.com/js/images/new/news/prev_active.png*/);
+		$(this).not(".prev_disable").attr('src','images/new/news/prev_active.png');
 	});
 	$('.prev_able').mouseout(function(){
-		$(this).not(".prev_disable").attr('src','images/new/news/prev.png'/*tpa=http://www.myzaker.com/js/images/new/news/prev.png*/);
+		$(this).not(".prev_disable").attr('src','images/new/news/prev.png');
 	});
 	
 });
@@ -65,7 +65,7 @@ function getNewsListData (action){
 				
 				if(data.isLast){
 					//最后一页
-					next_img.attr('src','images/new/news/next_disable.png'/*tpa=http://www.myzaker.com/js/images/new/news/next_disable.png*/);
+					next_img.attr('src','images/new/news/next_disable.png');
 					next_img.attr('onclick','');
 					next_img.attr('class','next_disable');
 					
@@ -76,7 +76,7 @@ function getNewsListData (action){
 					
 					//不是最后一页,当且仅当 请求前是最后一页时,更改按钮
 					if(isLast){
-						next_img.attr('src','images/new/news/next.png'/*tpa=http://www.myzaker.com/js/images/new/news/next.png*/);
+						next_img.attr('src','images/new/news/next.png');
 						next_img.attr('onclick','getNewsListData("next")');
 						next_img.attr('class','next_able');
 						isLast = false;
@@ -86,14 +86,14 @@ function getNewsListData (action){
 				
 				if(queryPage == 1){
 					//第一页
-					prev_img.attr('src', 'images/new/news/prev_disable.png'/*tpa=http://www.myzaker.com/js/images/new/news/prev_disable.png*/);
+					prev_img.attr('src', 'images/new/news/prev_disable.png');
 					prev_img.attr('onclick', '');
 					prev_img.attr('class','prev_disable');
 				}else{
 					
 					//不是第一页时,当且仅当 请求前是第一页时,更改按钮
 					if(currentPage == 1){
-						prev_img.attr('src', 'images/new/news/prev.png'/*tpa=http://www.myzaker.com/js/images/new/news/prev.png*/);
+						prev_img.attr('src', 'images/new/news/prev.png');
 						prev_img.attr('onclick', 'getNewsListData("prev")');
 						prev_img.attr('class','prev_able');
 					}
