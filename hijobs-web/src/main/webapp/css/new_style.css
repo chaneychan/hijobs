@@ -34,7 +34,7 @@ a:hover, a:active, a:focus { color:#55c5f3; text-decoration:none; }
 #na_ul li{float:left;width:70px;cursor:pointer;text-align:center;overflow:hidden;margin-top:40px;}
 #na_ul li span{/*border-right:1px dashed RGB(190,190,190);*/display:block;}
 #na_ul li span.lastTitle{border:none;}
-#logo_img{position: absolute;width:150px;}
+#logo_img{position: absolute;width:200px;}
 
 .active_title span{color:#ff5050;}
 .active_title a{color:#ff5050;}
@@ -44,7 +44,7 @@ a:hover, a:active, a:focus { color:#55c5f3; text-decoration:none; }
 #footer_inner a{color:RGB(124,124,124);}
 /*首页*/
 #homepage_main{background-color:RGB(221,229,236);padding-top:100px;}
-.pics_div{position: relative;width:418px;height:760px;margin:0 auto;background:url("../images/new/homepage/phone.png")/*tpa=http://www.myzaker.com/images/new/homepage/phone.png*/ left top no-repeat;}
+.pics_div{position: relative;width:418px;height:760px;margin:0 auto;background:url("../images/new/homepage/phone.png") left top no-repeat;}
 .pics_div .carousel-inner{position: absolute;bottom:0;left:23px;width: initial;width: auto;}
 .pics_div .carousel-inner div{float:left;}
 
@@ -156,15 +156,15 @@ a:hover, a:active, a:focus { color:#55c5f3; text-decoration:none; }
 
 #medium li div.list_content{padding:0 0 54px 63px;}
 
-#media_sign_1 .list_content{background: url("../images/new/contact/1.png")/*tpa=http://www.myzaker.com/images/new/contact/1.png*/ left top no-repeat;}
-#media_sign_2 .list_content{background: url("../images/new/contact/2.png")/*tpa=http://www.myzaker.com/images/new/contact/2.png*/ left top no-repeat;}
-#media_sign_3 .list_content{background: url("../images/new/contact/3.png")/*tpa=http://www.myzaker.com/images/new/contact/3.png*/ left top no-repeat;}
-#media_sign_4 .list_content{background: url("../images/new/contact/4.png")/*tpa=http://www.myzaker.com/images/new/contact/4.png*/ left top no-repeat;}
-#media_sign_5 .list_content{background: url("../images/new/contact/5.png")/*tpa=http://www.myzaker.com/images/new/contact/5.png*/ left top no-repeat;}
+#media_sign_1 .list_content{background: url("../images/new/contact/1.png") left top no-repeat;}
+#media_sign_2 .list_content{background: url("../images/new/contact/2.png") left top no-repeat;}
+#media_sign_3 .list_content{background: url("../images/new/contact/3.png") left top no-repeat;}
+#media_sign_4 .list_content{background: url("../images/new/contact/4.png") left top no-repeat;}
+#media_sign_5 .list_content{background: url("../images/new/contact/5.png") left top no-repeat;}
 
-#media_liability_A .list_content{background: url("../images/new/contact/A.png")/*tpa=http://www.myzaker.com/images/new/contact/A.png*/ left top no-repeat;}
-#media_liability_B .list_content{background: url("../images/new/contact/B.png")/*tpa=http://www.myzaker.com/images/new/contact/B.png*/ left top no-repeat;}
-#media_liability_C .list_content{background: url("../images/new/contact/C.png")/*tpa=http://www.myzaker.com/images/new/contact/C.png*/ left top no-repeat;}
+#media_liability_A .list_content{background: url("../images/new/contact/A.png") left top no-repeat;}
+#media_liability_B .list_content{background: url("../images/new/contact/B.png") left top no-repeat;}
+#media_liability_C .list_content{background: url("../images/new/contact/C.png") left top no-repeat;}
 
 .cooperate_img{margin:100px 0;display: table;}
 .cooperate_img img{margin:0 auto;display:inline;}
