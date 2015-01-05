@@ -62,5 +62,6 @@ target
 *.classpath
 *.project
 .settings/
+bin
 *.MF
 
