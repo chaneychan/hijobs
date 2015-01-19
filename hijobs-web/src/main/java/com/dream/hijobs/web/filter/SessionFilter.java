@@ -25,7 +25,6 @@ import com.dream.hijobs.service.dto.ResultCode;
 import com.dream.hijobs.service.token.Token;
 import com.dream.hijobs.service.token.TokenHelper;
 import com.dream.hijobs.util.constants;
-import com.dream.hijobs.web.controller.FileController;
 
 /**
  * Token验证与SessionFilter
@@ -60,7 +59,7 @@ public class SessionFilter implements Filter {
         String path=((HttpServletRequest)request).getServletPath();  
 //      System.out.println("path="+path);  
         for(int i=0;i<list.size();i++){
-            if(path.indexOf(list.get(i))!=-1 || "/".equals(path)){//不需要拦截  ,增加根目录不拦截,让用户可以通过域名直接访问
+            if(path.indexOf(list.get(i))!=-1){
             	chain.doFilter(request, response);
             	return;
             }

@@ -37,7 +37,7 @@
         <init-param>  
 <!--             不拦截的路径  空格分隔  -->
             <param-name>exclude</param-name>  
-            <param-value>reg load htm image css js</param-value>  
+            <param-value>reg load</param-value>  
         </init-param>  
     </filter>
     <filter-mapping>
@@ -70,15 +70,6 @@
         <servlet-name>springMVC</servlet-name>  
         <url-pattern>/</url-pattern>  
     </servlet-mapping>  
-    
-    <servlet-mapping>   
-        <servlet-name>default</servlet-name>  
-        <url-pattern>*.html</url-pattern>     
-    </servlet-mapping>    
-    <servlet-mapping>   
-        <servlet-name>default</servlet-name>  
-        <url-pattern>*.htm</url-pattern>     
-    </servlet-mapping>    
 
    	<filter>  
 	    <filter-name>HiddenHttpMethodFilter</filter-name>  
